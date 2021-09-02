@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Inbox</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <!-- Sliding item with text options on both sides -->
+        <ion-item-sliding *ngFor="let item of test">
+            <ion-item-options side="start">
+                <ion-item-option color="danger" (click)="sendItemToTrash()" (click)="removeItem(item)">Delete
+                </ion-item-option>
+                <ion-item-option (click)="sendItemToSpam()" (click)="removeItem(item)">Spam</ion-item-option>
+            </ion-item-options>
+
+
+            <ion-item>
+                <ion-label>
+                    <h2>{{item.email}}</h2>
+                    <h3>{{item.subject}}</h3>
+                    <p>{{item.content}}</p>
+                </ion-label>
+            </ion-item>
+
+
+
+        </ion-item-sliding>
+
+    </ion-list>
+</ion-content>
